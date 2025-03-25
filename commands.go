@@ -32,3 +32,15 @@ func (cmds commands) run(s *state, cmd command) error {
 
 	return fmt.Errorf("command %s does not exist!", cmd.name)
 }
+
+func (cmds commands) registerCommands() {
+	cmds.register("login", handlerLogin)
+	cmds.register("register", handlerRegister)
+	cmds.register("reset", handlerReset)
+	cmds.register("users", handlerUsers)
+	cmds.register("agg", handlerAgg)
+	cmds.register("addfeed", handlerAddFeed)
+	cmds.register("feeds", handlerFeeds)
+	cmds.register("follow", handlerFollow)
+	cmds.register("following", handlerFollowing)
+}
