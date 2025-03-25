@@ -6,7 +6,10 @@ This is a nice little golang training project, implementing a rss feed aggregato
 You need to install PostgreSQL and Go locally to run this gator
 
 ## Installation
-TODO
+```bash
+go get github.com/wittyCode/blog-aggregator
+go install github.com/wittyCode/blog-aggregator
+```
 
 ## Local Setup
 To run Gator, you need to place a configuration file in your home directory called .gatorconfig.json
