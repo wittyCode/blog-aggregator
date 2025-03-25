@@ -178,6 +178,27 @@ func scrapeFeeds(s *state) {
 	rssFeed, err := rss.FetchFeed(ctx, feed.Url)
 
 	for _, item := range rssFeed.Channel.Item {
-		fmt.Println(item.Title)
+		persistPost(s, ctx, item, feed.ID)
 	}
+}
+
+// Try parsing with different layouts
+func parsePublishedDate(pubDateStr string) (time.Time, error) {
+	// Common RSS date formats to try
+	layouts := []string{
+		time.RFC822,   // "02 Jan 06 15:04 MST"
+		time.RFC822Z,  // "02 Jan 06 15:04 -0700"
+		time.RFC1123,  // "Mon, 02 Jan 2006 15:04:05 MST"
+		time.RFC1123Z, // "Mon, 02 Jan 2006 15:04:05 -0700"
+	}
+
+	for _, layout := range layouts {
+		t, err := time.Parse(layout, pubDateStr)
+		if err == nil {
+			return t, nil
+		}
+	}
+
+	// If all parsing attempts failed
+	return time.Time{}, fmt.Errorf("unable to parse date: %s", pubDateStr)
 }
