@@ -1,4 +1,4 @@
-module github.com/wittyCode/blog-agggregator
+module github.com/wittyCode/blog-aggregator
 
 go 1.24.0
 
