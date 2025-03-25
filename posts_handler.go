@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/wittyCode/blog-agggregator/internal/database"
+	"github.com/wittyCode/blog-aggregator/internal/database"
 )
 
 func handlerBrowse(s *state, cmd command, user database.User) error {

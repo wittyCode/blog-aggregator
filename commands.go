@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"internal/config"
 
-	"github.com/wittyCode/blog-agggregator/internal/database"
+	"github.com/wittyCode/blog-aggregator/internal/database"
 )
 
 type state struct {

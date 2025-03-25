@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/wittyCode/blog-agggregator/internal/database"
+	"github.com/wittyCode/blog-aggregator/internal/database"
 )
 
 func handlerReset(s *state, cmd command) error {
